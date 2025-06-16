@@ -13,6 +13,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.5/viewer.min.css" rel="stylesheet">
+
     <!-- Custom Style -->
     <style>
         html,
@@ -211,7 +213,9 @@
     
                             <!-- Slide 1 -->
                             <div class="carousel-item active">
-                                <img src="asset/atlanta.png" class="d-block w-100 img-project" alt="atlanta">
+                                <div class="img-wrapper">
+                                    <img src="asset/atlanta.png" class="d-block w-100 img-project" alt="atlanta">
+                                </div>
                                 <div class="p-3 text-justify">
                                     <p>
                                         <strong>Name App :</strong> <span>Atlanta Electronics</span>
@@ -233,7 +237,9 @@
 
                             <!-- Slide 2 -->
                             <div class="carousel-item">
-                                <img src="asset/siatex.png" class="d-block w-100 img-project" alt="siatex">
+                                <div class="img-wrapper">
+                                    <img src="asset/siatex.png" class="d-block w-100 img-project" alt="siatex">
+                                </div>
                                 <div class="p-3 text-justify">
                                     <p>
                                         <strong>Name App :</strong> <span>SIA Texmaco Semarang</span>
@@ -256,7 +262,9 @@
 
                             <!-- Slide 3 -->
                             <div class="carousel-item">
-                                <img src="asset/kurnia.png" class="d-block w-100 img-project" alt="kurnia">
+                                <div class="img-wrapper">
+                                    <img src="asset/kurnia.png" class="d-block w-100 img-project" alt="kurnia">
+                                </div>
                                 <div class="p-3 text-justify">
                                     <p>
                                         <strong>Name App :</strong> <span>Kurnia Mart</span>
@@ -344,6 +352,26 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.5/viewer.min.js"></script>
+    <script>
+        document.querySelectorAll('.img-wrapper').forEach(wrapper => {
+            const viewer = new Viewer(wrapper.querySelector('img'), {
+                inline: false,
+                navbar: false,
+                toolbar: true,
+                title: false,
+                movable: true,
+                zoomable: true,
+                scalable: false,
+                transition: true,
+            });
+
+            // Open viewer on image click
+            wrapper.addEventListener('click', () => {
+                viewer.show();
+            });
+        });
+    </script>
 </body>
 
 </html>
